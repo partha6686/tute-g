@@ -1,63 +1,63 @@
 import React, { useState } from "react";
 import LectCard from "./LectCard";
 
-const Exclusive = () => {
-  const data = [
-    {
-      title: "Introduction",
-      lect_no: 1,
-      sub: "Programming",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail4.jpg?updatedAt=1680883327422",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 29min",
-    },
-    {
-      title: "Operators",
-      lect_no: 1,
-      sub: "Programming",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 07min",
-    },
-    {
-      title: "Control Structure",
-      lect_no: 1,
-      sub: "Programming",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail4.jpg?updatedAt=1680883327422",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 10min",
-    },
-    {
-      title: "Function",
-      lect_no: 1,
-      sub: "Programming",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 57min",
-    },
-    {
-      title: "Recursion",
-      lect_no: 1,
-      sub: "Programming",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "2hr 03min",
-    },
-    {
-      title: "Arrays",
-      lect_no: 1,
-      sub: "Programming",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 29min",
-    },
-  ];
+const Exclusive = ({ data }) => {
+  // const data = [
+  //   {
+  //     title: "Introduction",
+  //     lect_no: 1,
+  //     sub: "Programming",
+  //     imgsrc:
+  //       "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail4.jpg?updatedAt=1680883327422",
+  //     link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
+  //     time: "1hr 29min",
+  //   },
+  //   {
+  //     title: "Operators",
+  //     lect_no: 1,
+  //     sub: "Programming",
+  //     imgsrc:
+  //       "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
+  //     link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
+  //     time: "1hr 07min",
+  //   },
+  //   {
+  //     title: "Control Structure",
+  //     lect_no: 1,
+  //     sub: "Programming",
+  //     imgsrc:
+  //       "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail4.jpg?updatedAt=1680883327422",
+  //     link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
+  //     time: "1hr 10min",
+  //   },
+  //   {
+  //     title: "Function",
+  //     lect_no: 1,
+  //     sub: "Programming",
+  //     imgsrc:
+  //       "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
+  //     link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
+  //     time: "1hr 57min",
+  //   },
+  //   {
+  //     title: "Recursion",
+  //     lect_no: 1,
+  //     sub: "Programming",
+  //     imgsrc:
+  //       "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
+  //     link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
+  //     time: "2hr 03min",
+  //   },
+  //   {
+  //     title: "Arrays",
+  //     lect_no: 1,
+  //     sub: "Programming",
+  //     imgsrc:
+  //       "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
+  //     link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
+  //     time: "1hr 29min",
+  //   },
+  // ];
   const [activeChap, setActiveChap] = useState(data[0]);
 
   const handleChapChange = (chap) => {

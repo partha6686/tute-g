@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LectCard from "./LectCard";
 
-const Lectures = () => {
+const Lectures = ({ initdata }) => {
   const subjects = [
     "Mathematics",
     "Science",
@@ -9,215 +9,30 @@ const Lectures = () => {
     "English",
     "Hindi",
   ];
-  const data = [
-    {
-      title: "Number System",
-      lect_no: 1,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail4.jpg?updatedAt=1680883327422",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 07min",
-    },
-    {
-      title: "Number System",
-      lect_no: 2,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 17min",
-    },
-    {
-      title: "Number System",
-      lect_no: 3,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail4.jpg?updatedAt=1680883327422",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 16min",
-    },
-    {
-      title: "Number System",
-      lect_no: 4,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-    },
-    {
-      title: "Ratio and Percentage",
-      lect_no: 1,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail1.png?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 47min",
-    },
-    {
-      title: "Ratio and Percentage",
-      lect_no: 2,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail1.png?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 13min",
-    },
-    {
-      title: "Ratio and Percentage",
-      lect_no: 3,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail1.png?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "2hr 07min",
-    },
-    {
-      title: "Simple Interest",
-      lect_no: 1,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 03min",
-    },
-    {
-      title: "Simple Interest",
-      lect_no: 2,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 07min",
-    },
-    {
-      title: "Compound Interest",
-      lect_no: 1,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 17min",
-    },
-    {
-      title: "Compound Interest",
-      lect_no: 2,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 29min",
-    },
-    {
-      title: "Compound Interest",
-      lect_no: 3,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 32min",
-    },
-    {
-      title: "Time and Work",
-      lect_no: 1,
-      sub: "Mathematics",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail4.jpg?updatedAt=1680883327422",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "2hr 29min",
-    },
-    {
-      title: "Cell",
-      lect_no: 1,
-      sub: "Science",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 01min",
-    },
-    {
-      title: "Cell",
-      lect_no: 2,
-      sub: "Science",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 37min",
-    },
-    {
-      title: "Cell",
-      lect_no: 3,
-      sub: "Science",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 05min",
-    },
-    {
-      title: "Cell",
-      lect_no: 4,
-      sub: "Science",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail-2.png?updatedAt=1680883327389",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 07min",
-    },
-    {
-      title: "Crop Production",
-      lect_no: 1,
-      sub: "Science",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 07min",
-    },
-    {
-      title: "Tense",
-      lect_no: 1,
-      sub: "English",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 09min",
-    },
-    {
-      title: "Tense",
-      lect_no: 2,
-      sub: "English",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 11min",
-    },
-    {
-      title: "Tense",
-      lect_no: 3,
-      sub: "English",
-      imgsrc:
-        "https://ik.imagekit.io/v9pfmptul/ansrOne/thumbnail3.jpeg?updatedAt=1680883327401",
-      link: "https://www.youtube.com/watch?v=ZzaPdXTrSb8",
-      time: "1hr 07min",
-    },
-  ];
+  const [data, setData] = useState(initdata);
   const [activeSub, setActiveSub] = useState(subjects[0]);
   const [chapters, setChapters] = useState([]);
   const [activeChapter, setActiveChapter] = useState();
   const [contents, setContents] = useState([]);
   //   const [activeContent, setActiveContent]= useState();
-  const ftechChapters = (sub) => {
-    let tmp = data.filter((item) => item.sub === sub && item.lect_no === 1);
+  const ftechChapters = async (sub) => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_HOST}getlectures/${sub}`
+    );
+    let df = await response.json();
+    setData(df);
+    let tmp = df.filter((item) => item.lect_no === 1);
     setChapters([...tmp]);
   };
-  const fetchContents = (sub, chap) => {
-    let tmp = data.filter((item) => item.sub === sub && item.title === chap);
+  const fetchContents = (chap) => {
+    let tmp = data.filter((item) => item.title === chap);
     setContents([...tmp]);
   };
   useEffect(() => {
-    ftechChapters(activeSub);
-
-    // return () => {
-    //   setChapters([]);
-    // };
+    let tmp = initdata.filter((item) => item.lect_no === 1);
+    setChapters([...tmp]);
+    setActiveChapter(tmp[0].title);
+    fetchContents(tmp[0].title);
   }, []);
   const handleSubChange = (sub) => {
     setContents([]);
@@ -226,7 +41,7 @@ const Lectures = () => {
   };
   const handleChapChange = (chap) => {
     setActiveChapter(chap);
-    fetchContents(activeSub, chap);
+    fetchContents(chap);
   };
   return (
     <div>

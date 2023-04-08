@@ -7,13 +7,32 @@ import Watched from "@/components/Watched";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ data, prog, watched }) {
   return (
     <main className="bg-slate-950">
       <Navbar />
-      <Watched />
-      <Lectures />
-      <Exclusive />
+      <Watched data={watched} />
+      <Lectures initdata={data} />
+      <Exclusive data={prog} />
     </main>
   );
+}
+export async function getServerSideProps(context) {
+  const [dataRes, progRes, watchRes] = await Promise.all([
+    fetch(`${process.env.NEXT_PUBLIC_HOST}getlectures/Mathematics`),
+    fetch(`${process.env.NEXT_PUBLIC_HOST}getlectures/Programming`),
+    fetch(`${process.env.NEXT_PUBLIC_HOST}watched`),
+  ]);
+  const [data, prog, watched] = await Promise.all([
+    dataRes.json(),
+    progRes.json(),
+    watchRes.json(),
+  ]);
+  // const response = await fetch(
+  //   `${process.env.NEXT_PUBLIC_HOST}getlectures/Programming`
+  // );
+  // let prog = await response.json();
+  return {
+    props: { data, prog, watched }, // will be passed to the page component as props
+  };
 }
