@@ -19,6 +19,7 @@ export default function Home({ data, prog, watched }) {
     </main>
   );
 }
+//Changed ENV
 export async function getServerSideProps(context) {
   const [dataRes, progRes, watchRes] = await Promise.all([
     fetch(`${process.env.NEXT_PUBLIC_HOST}getlectures/Mathematics`),
