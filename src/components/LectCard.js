@@ -29,7 +29,7 @@ const LectCard = ({ sz, data, bar }) => {
           )}
         </div>
         {bar && (
-          <div className="bg-slate-600 h-1 my-1 md:my-2 w-full ">
+          <div className="bg-slate-600 h-1 mt-1 md:mt-2 w-full ">
             <div className={`bg-red-600 w-${bar} h-full`}></div>
           </div>
         )}
