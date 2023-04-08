@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Exclusive from "@/components/Exclusive";
 import Lectures from "@/components/Lectures";
 import Watched from "@/components/Watched";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,7 @@ export default function Home({ data, prog, watched }) {
       <Watched data={watched} />
       <Lectures initdata={data} />
       <Exclusive data={prog} />
+      <Footer />
     </main>
   );
 }
@@ -28,11 +30,7 @@ export async function getServerSideProps(context) {
     progRes.json(),
     watchRes.json(),
   ]);
-  // const response = await fetch(
-  //   `${process.env.NEXT_PUBLIC_HOST}getlectures/Programming`
-  // );
-  // let prog = await response.json();
   return {
-    props: { data, prog, watched }, // will be passed to the page component as props
+    props: { data, prog, watched },
   };
 }

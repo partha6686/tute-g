@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import LectCard from "./LectCard";
 
 const Lectures = ({ initdata }) => {
@@ -34,6 +34,7 @@ const Lectures = ({ initdata }) => {
     setActiveChapter(tmp[0].title);
     fetchContents(tmp[0].title);
   }, []);
+
   const handleSubChange = (sub) => {
     setContents([]);
     setActiveSub(sub);
@@ -63,21 +64,23 @@ const Lectures = ({ initdata }) => {
           ))}
         </div>
         <div className="w-1/4 md:w-1/3 bg-slate-800 py-5 rounded-s-lg">
-          {chapters &&
-            chapters.map((chapter, idx) => (
-              <p
-                key={chapter.title}
-                className={`px-2 md:px-4 text-[8px] sm:text-xs md:text-lg leading-[10px] sm:leading-6 md:leading-8 my-4 md:my-6  font-semibold hover:bg-slate-800 cursor-pointer ${
-                  activeChapter === chapter.title
-                    ? "text-red-500"
-                    : "text-slate-400"
-                }`}
-                onClick={() => handleChapChange(chapter.title)}
-              >
-                <span>{idx + 1}. </span>
-                {chapter.title}
-              </p>
-            ))}
+          <div className="h-full overflow-y-scroll">
+            {chapters &&
+              chapters.map((chapter, idx) => (
+                <p
+                  key={chapter.title}
+                  className={`px-2 md:px-4 text-[8px] sm:text-xs md:text-lg leading-[10px] sm:leading-6 md:leading-8 my-4 md:my-6  font-semibold hover:bg-slate-800 cursor-pointer ${
+                    activeChapter === chapter.title
+                      ? "text-red-500"
+                      : "text-slate-400"
+                  }`}
+                  onClick={() => handleChapChange(chapter.title)}
+                >
+                  <span>{idx + 1}. </span>
+                  {chapter.title}
+                </p>
+              ))}
+          </div>
         </div>
         <div className="w-1/2 md:w-1/3 bg-slate-800">
           <div className="w-full h-1/2">

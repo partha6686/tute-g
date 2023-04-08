@@ -25,3 +25,29 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #cbd5e1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7f1d1d;
+}
+
+@media (max-width: 450px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}

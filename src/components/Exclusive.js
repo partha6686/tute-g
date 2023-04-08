@@ -64,25 +64,27 @@ const Exclusive = ({ data }) => {
     setActiveChap(chap);
   };
   return (
-    <div>
+    <div className="pb-10">
       <h2 className="text-lg md:text-3xl md:font-semibold mx-3 py-10">
         Exclusive Coding Course
       </h2>
-      <div className="flex w-full lg:h-[550px]">
-        <div className="w-1/3 ps-4 md:ps-8">
-          {data.map((chap, idx) => (
-            <p
-              className={`text-center text-[10px] sm:text-sm md:text-lg leading-6 sm:leading-8 md:leading-10 my-6 sm:my-8 md:my-10  font-semibold hover:bg-slate-800 cursor-pointer ${
-                activeChap.title === chap.title
-                  ? "text-red-500"
-                  : "text-slate-400"
-              } rounded-s-lg`}
-              key={chap.title}
-              onClick={() => handleChapChange(chap)}
-            >
-              {chap.title}
-            </p>
-          ))}
+      <div className="flex w-full h-[220px] sm:h-[270px] md:h-[370px] lg:h-[520px]">
+        <div className="w-1/3 ps-4 md:ps-8 py-1">
+          <div className="h-full overflow-y-scroll">
+            {data.map((chap, idx) => (
+              <p
+                className={`text-center text-[10px] sm:text-sm md:text-lg leading-6 sm:leading-8 md:leading-10 my-6 sm:my-8 md:my-10  font-semibold hover:bg-slate-800 cursor-pointer ${
+                  activeChap.title === chap.title
+                    ? "text-red-500"
+                    : "text-slate-400"
+                } rounded-s-lg `}
+                key={chap.title}
+                onClick={() => handleChapChange(chap)}
+              >
+                {chap.title}
+              </p>
+            ))}
+          </div>
         </div>
         <div className="w-2/3 h-[200px] sm:h-[250px] md:h-[350px] lg:h-[500px]">
           <LectCard sz="md" data={activeChap} />
